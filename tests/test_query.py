@@ -137,20 +137,6 @@ class TestQueryBuilder:
 
             assert query.query_dict == expected_query_dict
 
-    def test_validate_query(self):
-        # given
-        builder = QueryBuilder()
-
-        # when
-        builder.validate_query(None, ["validkey"], {"validkey": "value"})
-
-        # then
-        pytest.raises(
-            ValueError,
-            builder.validate_query,
-            *[None, ["validkey"], {"invalidkey": "value"}]
-        )
-
     def test_union_datasource(self):
         # Given
         expected_query_dict = {"queryType": None, "dataSource": "things"}
